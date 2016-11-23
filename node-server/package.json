@@ -1,0 +1,12 @@
+{
+  "name": "Auth0-fronted-server",
+  "description": "Auth0-fronted-server",
+  "version": "0.0.1",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "3.x",
+    "jsonwebtoken": "^7.1.9",
+    "request": "^2.78.0"
+  }
+}

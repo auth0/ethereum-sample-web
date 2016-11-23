@@ -1,0 +1,114 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<html class="no-js" manifest="cache.manifest">-->
+<html class="no-js" ng-app="auth0-login-webApp">
+<!--<![endif]-->
+
+<head>
+	<title data-ng-bind="'auth0-login-web - ' + $state.current.name"></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<!-- build:css styles/css/vendor.css -->
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+	<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css" />
+	<link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.min.css" />
+	<link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />
+	<link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+	<link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+	<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" />
+	<link rel="stylesheet" href="bower_components/angular-growl-v2/build/angular-growl.css" />
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:css styles/css/styles.css -->
+	<!-- include: "type": "css", "files": "<%= css %>" -->
+<link rel="stylesheet" type="text/css" href="styles/css/main.css" />
+	<!-- /include -->
+	<!-- endbuild -->
+</head>
+
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<a class="navbar-brand" ui-sref="home">
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="main-navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li data-ng-class="{ active: $state.includes('register') }">
+					<a angular-ripple="" ui-sref="register"><i class="glyphicon glyphicon-list-alt"></i> Register</a>
+				</li>
+				<li data-ng-class="{ active: $state.includes('login') }">
+					<a angular-ripple="" ui-sref="login"><i class="glyphicon glyphicon-user"></i> Login</a>
+				</li>
+				<li data-ng-class="{ active: $state.includes('admin') }">
+					<a angular-ripple="" ui-sref="admin"><i class="glyphicon glyphicon-cog"></i> Admin</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="wrapper" class="container-fluid mainview toggled totalHeight">
+		<div growl></div>
+
+		<div ui-view="" class="fade-in totalHeight" autoscroll="false"></div>
+
+	</div>
+	<!-- build:js scripts/scripts.js -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/Chart.js/Chart.min.js"></script>
+	<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+	<script src="bower_components/angular-resize/dist/angular-resize.min.js"></script>
+	<script src="bower_components/angular-ripple/angular-ripple.js"></script>
+	<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+	<script src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="bower_components/lodash/lodash.min.js"></script>
+	<script src="bower_components/restangular/dist/restangular.min.js"></script>
+	<script src="bower_components/appverse-web-html5-core/dist/appverse/appverse.min.js"></script>
+	<script src="bower_components/appverse-web-html5-core/dist/appverse-router/appverse-router.min.js"></script>
+	<script src="bower_components/appverse-web-html5-core/dist/appverse-utils/appverse-utils.min.js"></script>
+	<script src="bower_components/appverse-web-html5-core/dist/appverse-rest/appverse-rest.min.js"></script>
+	<script src="bower_components/boostrap-sass/assets/javascripts/bootstrap.js"></script>
+	<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+	<script src="bower_components/ag-grid/dist/ag-grid.min.js"></script>
+	<script src="bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
+	<script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+	<script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
+
+	<script src="app.js"></script>
+	<script src="states/app-states.js"></script>
+	<script src="init-constants.js"></script>
+	<script src="components/admin/admin-controller.js"></script>
+	<script src="components/login/login-controller.js"></script>
+	<script src="components/register/register-controller.js"></script>
+	<script src="components/register/register-factory.js"></script>
+	<script src="components/login/login-factory.js"></script>
+    <script src="components/common/authenticationServerDetailsFactory.js"></script>
+	<!-- endbuild -->
+
+</body>
+
+</html>

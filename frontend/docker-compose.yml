@@ -1,0 +1,20 @@
+# Balancer: 
+#    Build and run: docker-compose up -d
+#    http://<dockerhost>
+# Scale N instances: 
+#    docker-compose scale auth0-login-web=N
+#    docker-compose up -d -force-recreate
+# HAproxy dashboard: 
+#    http://<dockerhost>:1936  
+#    User: stats / stats   
+auth0-login-web:
+  build: .
+  ports:
+    - "8080"
+haproxy:
+  image: tutum/haproxy
+  links:
+    - auth0-login-web
+  ports:
+    - "80:80"
+    - "1936:1936" 

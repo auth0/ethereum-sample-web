@@ -1,0 +1,16 @@
+test/coverage
+test/reports
+.tmp
+.idea
+node_modules
+/app/bower_components
+/app/test/coverage
+/app/test/reports
+/app/test/unit
+dist
+styles/css/
+app/resources/i18n/angular
+app/styles/css
+app/styles/fonts
+npm-debug.log
+output.txt

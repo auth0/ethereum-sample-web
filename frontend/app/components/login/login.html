@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<div class="container-fluid totalHeight">
+
+	<div class="login-container">
+		<div class="avatar"></div>
+		<div class="form-box">
+			<form novalidate>
+				<input class="loginEmail" ng-model="login.item.email" name="Email" type="text" placeholder="Email">
+				<button class="btn btn-info btn-block login" ng-click="login.loginUser(login.item)">Login</button>
+				<p>new user? <a ui-sref="register">create new account</a></p>
+			</form>
+		</div>
+	</div>
+
+</div>

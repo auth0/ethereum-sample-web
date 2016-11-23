@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<div class="container-fluid totalHeight">
+	<div class="login-container">
+		<div class="avatar"></div>
+		<div class="form-box">
+			<form novalidate>
+				<input class="loginEmail" ng-model="register.item.email" name="user" type="text" placeholder="Email">
+				<div class="password">
+					<input ng-model="register.item.primaryAddress" type="{{register.inputType}}" placeholder="1º Address" ng-keyup="register.checkpass(register.item.address.length)">
+					<span ng-if="register.showEye" class="glyphicon glyphicon-eye-open" ng-mousedown="register.passMouseDown()" ng-mouseup="register.passMouseUp()"></span>
+				</div>
+				<button class="btn btn-info btn-block login" ng-click="register.registerEmail(register.item)">Register</button>
+				<p>already have an account? <a ui-sref="login">login here</a></p>
+			</form>
+		</div>
+		<div ng-if="register.download">
+			<a ng-href="{{register.downloadUrl}}" target="_blank" class="glyphicon glyphicon-download download"></a>
+			<p>Download Mobile App</p>
+		</div>
+	</div>
+
+</div>
