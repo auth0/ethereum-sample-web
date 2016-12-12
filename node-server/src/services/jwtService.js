@@ -21,12 +21,13 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 * SOFTWARE. 
 */
+
 const jwt = require('jsonwebtoken'),
     request = require('request'),
     configuration = require('./applicationConfigurationService.js');
 
 var authServerPublicKey;//Gets public key of authentication server
-request(configuration.authServerBaseUrl + '/publickey', function (error, response, body) {
+request(configuration.authServerBaseUrl + 'publickey', function (error, response, body) {
     if (!error && response.statusCode == 200) {
         authServerPublicKey = body;
     }
@@ -36,7 +37,7 @@ module.exports = (function init(){
     return{
         isTokenValid : function isTokenValid(token){
             try{
-                jwt.verify(token, authServerPublicKey, { algorithm: 'RS256'});
+                jwt.verify(token, authServerPublicKey, { algorithms: ['RS256'] });
                 console.log('Token is valid');
                 return true;
             }catch(err){
