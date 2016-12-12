@@ -62,6 +62,6 @@ app.post('/login', function(req, res) {
 	    res.status(403);
 });
 
-app.listen(3002, function () {
-	console.log('3rd party webapp listening on port 3002');
+app.listen(3001, function () {
+	console.log('3rd party webapp listening on port 3001');
 });
