@@ -56,8 +56,7 @@ app.get('/authserver/url', function (req, res) {
 app.post('/login', function(req, res) {
     var token = req.body.data;
 	console.log('Received login token:' + token);
-	//if(jwtService.isTokenValid(token))
-	if(true)//temporarily hardcoded
+	if(jwtService.isTokenValid(token))
 	    res.status(200);
 	else
 	    res.status(403);
