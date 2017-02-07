@@ -4,11 +4,13 @@
 	<div class="main-container">
 		<div class="avatar"></div>
 		<div class="form-box">
-			<form novalidate name="login-form">
-				<div class="form-group">
-					<input class="loginEmail" ng-model="login.item.email" name="Email" type="text" placeholder="Email" ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/" required>
+			<form novalidate name="loginForm">
+				<div class="form-group validation">
+					<input class="loginEmail" ng-model="login.item.email" name="email" type="text" placeholder="Email" ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/" required>
+					<span ng-show="loginForm.email.$dirty && loginForm.email.$invalid" class="glyphicon glyphicon-remove-sign invalid form-control-feedback icon" aria-hidden="true"></span>
+					<span ng-show="loginForm.email.$valid" class="glyphicon glyphicon-ok-sign valid form-control-feedback icon" aria-hidden="true"></span>
 				</div>
-				<button class="btn actionButton" ng-click="login.loginUser(login.item)">Login</button>
+				<button class="btn actionButton" ng-click="loginForm.$valid && login.loginUser(login.item)">Login</button>
 				<p>
 					<label class="labelColor">or create </label> <a class="linkButton" ui-sref="register">a new account</a></p>
 			</form>

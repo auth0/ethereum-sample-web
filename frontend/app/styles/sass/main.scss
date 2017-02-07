@@ -16,14 +16,20 @@
 @import "custom-styles/partials";
 
 html,body{
-    height: 100%;
-	background: rgb(210,223,237); /* Old browsers */
-	background: -moz-linear-gradient(-45deg, rgba(210,223,237,1) 0%, rgba(153,181,219,1) 28%, rgba(190,208,234,1) 46%, rgba(166,192,227,1) 51%, rgba(186,208,239,1) 64%, rgba(200,215,235,1) 71%, rgba(200,215,235,1) 71%, rgba(121,155,200,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 28%,rgba(190,208,234,1) 46%,rgba(166,192,227,1) 51%,rgba(186,208,239,1) 64%,rgba(200,215,235,1) 71%,rgba(200,215,235,1) 71%,rgba(121,155,200,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 28%,rgba(190,208,234,1) 46%,rgba(166,192,227,1) 51%,rgba(186,208,239,1) 64%,rgba(200,215,235,1) 71%,rgba(200,215,235,1) 71%,rgba(121,155,200,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background-image: url(../images/ethereum_background.png);
+	//background-size: cover;
+	//background-position:center;
+	background-repeat: no-repeat;
+	background-position: 50% 70%;
+	//font-family: Avenir next;
 	overflow: hidden;
 }
 
+.totalHeight{
+    height: 100%;
+}
+
+/*  Navbar  */
 .navbar-default .navbar-nav > li > a {
     color: rgb(46,54,78);
 }
@@ -49,9 +55,6 @@ html,body{
     margin: 0 50px !important;
 }
 
-.totalHeight{
-    height: 100%;
-}
 
 /*  Main Container   */
 
@@ -82,11 +85,13 @@ html,body{
 	color: #fff;
 	text-transform: capitalize;
 	font-weight: 300;
+	outline: 0;
 }
 
-.btn:hover, .btn:focus, .btn.focus {
+.btn:hover, .btn:focus, .btn:active, .btn.focus {
     background-color: rgb(50,50,100);
 	border-color: rgb(46,54,78);
+	outline: 0;
 }
 
 .linkButton{
@@ -94,15 +99,16 @@ html,body{
 }
 
 .avatar{
-    width: 65px;
-    height: 65px;
-    margin: 30px auto 40px;
+    width: 150px;
+    height: 90px;
+    margin: 0px auto 40px;
     background-size: cover;
-    background-image: url('https://www.coingecko.com/assets/coin-250/ethereum-5068801244545a7ababea71120c4fe00.png');
+    background-image: url(../images/ethereum_logo_blue.png);
+	text-align: center;
 }
 
 .form-box input{
-    width: 50%;
+    width: 70%;
     padding: 10px;
     height:40px;
     background: #fafafa;
@@ -124,6 +130,7 @@ html,body{
     border: none;
   	border-bottom: solid 1px rgb(46,54,78);
 	background-color: white;
+	color: rgb(46,54,78);
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -146,7 +153,7 @@ input:-webkit-autofill {
 }
 
 .labelColor{
-	color: rgb(162,162,162);
+	color: #999999;
 	font-weight: 100;
 }
 
@@ -154,27 +161,48 @@ input:-webkit-autofill {
      margin-bottom: 0; 
 }
 
-.password{
+/* Input Icons */
+.address{
     position: relative;
+	margin-top: 4%;
 }
 
-.password .glyphicon,#password2 .glyphicon {
-    right: 140px;
+.address .eye {
+    right: 75px;
     position: absolute;
     top: 12px;
     cursor:pointer;
 }
 
+.validation{
+	position: relative;
+}
+
+.validation .icon{
+    left: 45px;
+    position: absolute;
+	font-size: 22px;
+	&.valid{
+		color: rgb(76,217,100);
+	}
+	&.invalid{
+		color: rgb(248,92,91);
+	}
+}
+
+/* Download mobile app image */
 .download{
     font-size: 60px;
 	text-decoration: none;
 	color: rgb(46,54,78);
 }
+
 .download:hover,.download:focus{
     font-size: 60px;
 	text-decoration: none;
 	
 }
+
 /* Growl alerts */
 .alert{
     border-radius: 4px;
