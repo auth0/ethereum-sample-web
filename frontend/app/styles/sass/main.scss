@@ -18,115 +18,148 @@
 html,body{
     height: 100%;
 	background: rgb(210,223,237); /* Old browsers */
-background: -moz-linear-gradient(-45deg, rgba(210,223,237,1) 0%, rgba(153,181,219,1) 28%, rgba(190,208,234,1) 46%, rgba(166,192,227,1) 51%, rgba(186,208,239,1) 64%, rgba(200,215,235,1) 71%, rgba(200,215,235,1) 71%, rgba(121,155,200,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 28%,rgba(190,208,234,1) 46%,rgba(166,192,227,1) 51%,rgba(186,208,239,1) 64%,rgba(200,215,235,1) 71%,rgba(200,215,235,1) 71%,rgba(121,155,200,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 28%,rgba(190,208,234,1) 46%,rgba(166,192,227,1) 51%,rgba(186,208,239,1) 64%,rgba(200,215,235,1) 71%,rgba(200,215,235,1) 71%,rgba(121,155,200,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(-45deg, rgba(210,223,237,1) 0%, rgba(153,181,219,1) 28%, rgba(190,208,234,1) 46%, rgba(166,192,227,1) 51%, rgba(186,208,239,1) 64%, rgba(200,215,235,1) 71%, rgba(200,215,235,1) 71%, rgba(121,155,200,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 28%,rgba(190,208,234,1) 46%,rgba(166,192,227,1) 51%,rgba(186,208,239,1) 64%,rgba(200,215,235,1) 71%,rgba(200,215,235,1) 71%,rgba(121,155,200,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 28%,rgba(190,208,234,1) 46%,rgba(166,192,227,1) 51%,rgba(186,208,239,1) 64%,rgba(200,215,235,1) 71%,rgba(200,215,235,1) 71%,rgba(121,155,200,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	overflow: hidden;
 }
+
+.navbar-default .navbar-nav > li > a {
+    color: rgb(46,54,78);
+}
+
+.navbar .navbar-nav > li.active a {
+    border-top: 3px solid rgb(46,54,78);
+    border-bottom: 0px;
+    padding-bottom: 22px;
+	color: rgb(46,54,78);
+	line-height: 15px;
+}
+
+.navbar-nav > .active > a:focus {
+    color: rgb(46,54,78) !important;
+    background-color: transparent;
+}
+
+.navbar .navbar-nav > li > a:hover, .navbar-brand:hover {
+    color: rgb(46,54,78) !important;
+}
+
+.navbar .navbar-brand {
+    margin: 0 50px !important;
+}
+
 .totalHeight{
     height: 100%;
 }
-.imageRow {
-    margin-left: -35px !important;
-    margin-right: -30px !important;
-}
-.loginForm{
-    border: 1px solid black;
-    padding: 50px;
-  /*  background-color: gray;
-    opacity: 0.65;*/
-}
 
+/*  Main Container   */
 
-.login-container{
+.main-container{
     position: absolute;
     width: 600px;
-   // margin: 80px auto;
     padding: 20px 40px 40px;
     text-align: center;
     background: #fff;
     border: 1px solid #ccc;
     top: 50%;
     left: 50%;
-    margin-top: -150px;
+    margin-top: -200px;
     margin-left: -300px;
     z-index: 99;
+	border-radius: 6px;
 }
 
-
-.login-container::before,.login-container::after{
-    content: "";
-    position: absolute;
-    width: 100%;height: 100%;
-    top: 3.5px;left: 0;
-    background: #fff;
-    z-index: -1;
-    -webkit-transform: rotateZ(4deg);
-    -moz-transform: rotateZ(4deg);
-    -ms-transform: rotateZ(4deg);
-    border: 1px solid #ccc;
-
+.actionButton{
+	background-color: rgb(46,54,78);
+	border-color: rgb(46,54,78);
+	padding: 6px 35px;
+	border-radius: 100px;
+	padding: 6px 50px;
+    border-radius: 20px;
+	margin-top: 7%;
+	margin-bottom: 2%;
+	color: #fff;
+	text-transform: capitalize;
+	font-weight: 300;
 }
 
-.login-container::after{
-    top: 5px;
-    z-index: -2;
-    -webkit-transform: rotateZ(-2deg);
-     -moz-transform: rotateZ(-2deg);
-      -ms-transform: rotateZ(-2deg);
+.btn:hover, .btn:focus, .btn.focus {
+    background-color: rgb(50,50,100);
+	border-color: rgb(46,54,78);
+}
 
+.linkButton{
+	color: rgb(46,54,78);
 }
 
 .avatar{
-    width: 100px;height: 100px;
-    margin: 10px auto 30px;
-    //border-radius: 100%;
-    //border: 2px solid #aaa;
+    width: 65px;
+    height: 65px;
+    margin: 30px auto 40px;
     background-size: cover;
     background-image: url('https://www.coingecko.com/assets/coin-250/ethereum-5068801244545a7ababea71120c4fe00.png');
-    
 }
 
 .form-box input{
-    width: 100%;
+    width: 50%;
     padding: 10px;
-    text-align: center;
     height:40px;
-    border: 1px solid #ccc;;
     background: #fafafa;
     transition:0.2s ease-in-out;
-
 }
 
 .form-box input:focus{
     outline: 0;
-    background: #eee;
 }
 
 .form-box input[type="text"]{
-    border-radius: 5px 5px 0 0;
-    text-transform: lowercase;
+	border: none;
+  	border-bottom: solid 1px rgb(46,54,78);
+	background-color: white;
+	color: rgb(46,54,78);
 }
 
 .form-box input[type="password"]{
-    border-radius: 0 0 5px 5px;
-    border-top: 0;
+    border: none;
+  	border-bottom: solid 1px rgb(46,54,78);
+	background-color: white;
 }
 
-.form-box button.login{
-    margin-top:15px;
-    padding: 10px 20px;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgb(46,54,78);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: rgb(46,54,78);
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: rgb(46,54,78);
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgb(46,54,78);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.labelColor{
+	color: rgb(162,162,162);
+	font-weight: 100;
+}
+
+.form-group {
+     margin-bottom: 0; 
 }
 
 .password{
     position: relative;
 }
 
-.password input[type="password"]{
-    padding-right: 30px;
-}
-
 .password .glyphicon,#password2 .glyphicon {
-    right: 15px;
+    right: 140px;
     position: absolute;
     top: 12px;
     cursor:pointer;
@@ -134,7 +167,15 @@ background: linear-gradient(135deg, rgba(210,223,237,1) 0%,rgba(153,181,219,1) 2
 
 .download{
     font-size: 60px;
+	text-decoration: none;
+	color: rgb(46,54,78);
 }
+.download:hover,.download:focus{
+    font-size: 60px;
+	text-decoration: none;
+	
+}
+/* Growl alerts */
 .alert{
     border-radius: 4px;
 }

@@ -28,7 +28,8 @@
 	<!-- endbuild -->
 	<!-- build:css styles/css/styles.css -->
 	<!-- include: "type": "css", "files": "<%= css %>" -->
-<link rel="stylesheet" type="text/css" href="styles/css/main.css" />
+
+<link rel="stylesheet" type="text/css" href="styles/css/main.css" />
 	<!-- /include -->
 	<!-- endbuild -->
 </head>
@@ -51,13 +52,13 @@
 		<div class="collapse navbar-collapse" id="main-navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li data-ng-class="{ active: $state.includes('register') }">
-					<a angular-ripple="" ui-sref="register"><i class="glyphicon glyphicon-list-alt"></i> Register</a>
+					<a angular-ripple="" ui-sref="register">Register</a>
 				</li>
 				<li data-ng-class="{ active: $state.includes('login') }">
-					<a angular-ripple="" ui-sref="login"><i class="glyphicon glyphicon-user"></i> Login</a>
+					<a angular-ripple="" ui-sref="login">Login</a>
 				</li>
 				<li data-ng-class="{ active: $state.includes('admin') }">
-					<a angular-ripple="" ui-sref="admin"><i class="glyphicon glyphicon-cog"></i> Admin</a>
+					<a angular-ripple="" ui-sref="admin">Admin</a>
 				</li>
 			</ul>
 		</div>
