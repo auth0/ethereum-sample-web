@@ -61,7 +61,7 @@ angular.module('auth0-login-webApp')
 								if (token == null) {
 									$timeout(function () {
 										$state.go('login');
-										growl.error("You not are loged");
+										growl.error("You not are logged");
 									}, 0);
 								}
 							}
