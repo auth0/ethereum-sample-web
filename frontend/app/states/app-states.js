@@ -47,13 +47,11 @@ angular.module('auth0-login-webApp')
 				$stateProvider
 
 					.state('login', {
-						// Use a url of '/' to set a states as the 'index'.
 						url: '/login',
 						templateUrl: 'components/login/login.html',
 						controller: 'loginController as login'
 					})
 					.state('admin', {
-						// Use a url of '/' to set a states as the 'index'.
 						url: '/admin',
 						templateUrl: 'components/admin/admin.html',
 						controller: 'adminController as admin',
@@ -70,7 +68,6 @@ angular.module('auth0-login-webApp')
 						}
 					})
 					.state('register', {
-						// Use a url of '/' to set a states as the 'index'.
 						url: '/register',
 						templateUrl: 'components/register/register.html',
 						controller: 'registerController as register'

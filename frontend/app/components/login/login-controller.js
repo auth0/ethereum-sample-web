@@ -30,9 +30,10 @@ angular.module('App.Controllers')
 		$log.debug('loginController loading');
 		var self = this;
 		self.page = 'login';
+		self.loader=false;
 
 		self.loginUser = function (item) {
-			console.log(item)
+			self.loader=true;
 			LoginFactory.postAuthentication(item).then(function (result) {
 				LoginFactory.validateToken(result).then(function (resultValidate) {
 						console.log(resultValidate)
@@ -45,17 +46,18 @@ angular.module('App.Controllers')
 						$cookies.put('JWTtoken', result, {
 							'expires': expiresValue
 						});
+						self.loader=false;
 						$state.go('admin');
 					},
 					function (response) { // optional
+						self.loader=false;
 						growl.error(response.data);
 					})
 			}, function (error) {
+				self.loader=false;
 				growl.error(error.data);
 				console.log('Error', error);
 			});
 		}
-
-		//console.log($cookies.get('JWTtoken'));
 
 	});

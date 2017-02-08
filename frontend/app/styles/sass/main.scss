@@ -1,21 +1,16 @@
 //IMPORT ORDER MATTERS IN THIS FILE, SO PLEASE BE CAREFUL TO LEAVE IT LIKE THIS:
-
 //CUSTOM VARIABLES
 @import "custom-styles/variables";
-
 //BOOTSWATCH THEME VARIABLES
 @import "variables";
-
 //APPVERSE BOOTSTRAP THEME (FROM BOWER COMPONENTS)
 @import "bootstrap-theme";
-
 //BOOTSWATCH THEME
 @import "theme";
-
 //CUSTOM STYLES ADDED IN PARTIAL FILES
 @import "custom-styles/partials";
-
-html,body{
+html,
+body {
 	background-image: url(../images/ethereum_background.png);
 	//background-size: cover;
 	//background-position:center;
@@ -25,61 +20,64 @@ html,body{
 	overflow: hidden;
 }
 
-.totalHeight{
-    height: 100%;
+.totalHeight {
+	height: 100%;
 }
 
+
 /*  Navbar  */
+
 .navbar-default .navbar-nav > li > a {
-    color: rgb(46,54,78);
+	color: rgb(46, 54, 78);
 }
 
 .navbar .navbar-nav > li.active a {
-    border-top: 3px solid rgb(46,54,78);
-    border-bottom: 0px;
-    padding-bottom: 22px;
-	color: rgb(46,54,78);
+	border-top: 3px solid rgb(46, 54, 78);
+	border-bottom: 0px;
+	padding-bottom: 22px;
+	color: rgb(46, 54, 78);
 	line-height: 15px;
 }
 
 .navbar-nav > .active > a:focus {
-    color: rgb(46,54,78) !important;
-    background-color: transparent;
+	color: rgb(46, 54, 78) !important;
+	background-color: transparent;
 }
 
-.navbar .navbar-nav > li > a:hover, .navbar-brand:hover {
-    color: rgb(46,54,78) !important;
+.navbar .navbar-nav > li > a:hover,
+.navbar-brand:hover {
+	color: rgb(46, 54, 78) !important;
 }
 
 .navbar .navbar-brand {
-    margin: 0 50px !important;
+	margin: 0 50px !important;
 }
 
 
 /*  Main Container   */
 
-.main-container{
-    position: absolute;
-    width: 600px;
-    padding: 20px 40px 40px;
-    text-align: center;
-    background: #fff;
-    border: 1px solid #ccc;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -300px;
-    z-index: 99;
+.main-container {
+	position: absolute;
+	width: 600px;
+	padding: 20px 40px 40px;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #ccc;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -300px;
+	z-index: 99;
 	border-radius: 6px;
 }
 
-.actionButton{
-	background-color: rgb(46,54,78);
-	border-color: rgb(46,54,78);
+.actionButton {
+	background-color: rgb(46, 54, 78);
+	border-color: rgb(46, 54, 78);
 	padding: 6px 35px;
 	border-radius: 100px;
 	padding: 6px 50px;
-    border-radius: 20px;
+	border-radius: 20px;
 	margin-top: 7%;
 	margin-bottom: 2%;
 	color: #fff;
@@ -88,137 +86,271 @@ html,body{
 	outline: 0;
 }
 
-.btn:hover, .btn:focus, .btn:active, .btn.focus {
-    background-color: rgb(50,50,100);
-	border-color: rgb(46,54,78);
-	outline: 0;
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.focus {
+	background-color: rgb(50, 50, 100);
+	border-color: rgb(46, 54, 78);
+	outline: 0 !important;
 }
 
-.linkButton{
-	color: rgb(46,54,78);
+.linkButton {
+	color: rgb(46, 54, 78);
 }
 
-.avatar{
-    width: 150px;
-    height: 90px;
-    margin: 0px auto 40px;
-    background-size: cover;
-    background-image: url(../images/ethereum_logo_blue.png);
+.avatar {
+	width: 150px;
+	height: 90px;
+	margin: 0px auto 40px;
+	background-size: cover;
+	background-image: url(../images/ethereum_logo_blue.png);
 	text-align: center;
 }
 
-.form-box input{
-    width: 70%;
-    padding: 10px;
-    height:40px;
-    background: #fafafa;
-    transition:0.2s ease-in-out;
+.form-box input {
+	width: 70%;
+	padding: 10px;
+	height: 40px;
+	background: #fafafa;
+	transition: 0.2s ease-in-out;
 }
 
-.form-box input:focus{
-    outline: 0;
+.form-box input:focus {
+	outline: 0;
 }
 
-.form-box input[type="text"]{
+.form-box input[type="text"] {
 	border: none;
-  	border-bottom: solid 1px rgb(46,54,78);
+	border-bottom: solid 1px rgb(46, 54, 78);
 	background-color: white;
-	color: rgb(46,54,78);
+	color: rgb(46, 54, 78);
 }
 
-.form-box input[type="password"]{
-    border: none;
-  	border-bottom: solid 1px rgb(46,54,78);
+.form-box input[type="password"] {
+	border: none;
+	border-bottom: solid 1px rgb(46, 54, 78);
 	background-color: white;
-	color: rgb(46,54,78);
+	color: rgb(46, 54, 78);
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: rgb(46,54,78);
+::-webkit-input-placeholder {
+	/* WebKit, Blink, Edge */
+	color: rgb(46, 54, 78);
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: rgb(46,54,78);
-   opacity:  1;
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: rgb(46, 54, 78);
+	opacity: 1;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: rgb(46,54,78);
-   opacity:  1;
+
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: rgb(46, 54, 78);
+	opacity: 1;
 }
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: rgb(46,54,78);
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgb(46, 54, 78);
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-.labelColor{
+.labelColor {
 	color: #999999;
 	font-weight: 100;
 }
 
 .form-group {
-     margin-bottom: 0; 
+	margin-bottom: 0;
 }
 
+
 /* Input Icons */
-.address{
-    position: relative;
+
+.address {
+	position: relative;
 	margin-top: 4%;
 }
 
 .address .eye {
-    right: 75px;
-    position: absolute;
-    top: 12px;
-    cursor:pointer;
+	right: 75px;
+	position: absolute;
+	top: 12px;
+	cursor: pointer;
 }
 
-.validation{
+.validation {
 	position: relative;
 }
 
-.validation .icon{
-    left: 45px;
-    position: absolute;
+.validation .icon {
+	left: 45px;
+	position: absolute;
 	font-size: 22px;
-	&.valid{
-		color: rgb(76,217,100);
+	&.valid {
+		color: rgb(76, 217, 100);
 	}
-	&.invalid{
-		color: rgb(248,92,91);
+	&.invalid {
+		color: rgb(248, 92, 91);
 	}
 }
+
 
 /* Download mobile app image */
-.download{
-    font-size: 60px;
+
+.download {
+	font-size: 60px;
 	text-decoration: none;
-	color: rgb(46,54,78);
+	color: rgb(46, 54, 78);
 }
 
-.download:hover,.download:focus{
-    font-size: 60px;
+.download:hover,
+.download:focus {
+	font-size: 60px;
 	text-decoration: none;
-	
 }
+
 
 /* Growl alerts */
-.alert{
-    border-radius: 4px;
+
+.alert {
+	border-radius: 4px;
 }
+
 .growl-container.growl-fixed.top-right {
-    top: 75px;
-    right: 15px;
+	top: 75px;
+	right: 15px;
 }
+
 .alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
 }
 
 .alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+
+/*  Loader  */
+
+.loader,
+.loader:after {
+	border-radius: 50%;
+	width: 10em;
+	height: 10em;
+}
+
+.loader {
+	margin: 60px auto;
+	font-size: 10px;
+	position: relative;
+	text-indent: -9999em;
+	border-top: 0.3em solid rgba(255, 255, 255, 0.2);
+	border-right: 0.3em solid rgba(255, 255, 255, 0.2);
+	border-bottom: 0.3em solid rgba(255, 255, 255, 0.2);
+	border-left: 0.3em solid #ffffff;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation: load8 1.1s infinite linear;
+	animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.loaderDiv {
+	position: absolute;
+	top: 38%;
+	left: 47%;
+}
+
+.loaderDiv .loaderImage {
+    position: absolute;
+    top: 34%;
+    left: 30%;
+    background-image: url(../images/ethereum_logo.png);
+    width: 40px;
+    height: 65px;
+    background-size: cover;
+}
+
+@media (max-width:500px) {
+	.loaderDiv {
+		position: absolute;
+		top: 38%;
+		left: 43%;
+	}
+}
+
+/*  logged  */
+.logged{
+	color: rgb(46, 54, 78);
+	margin-bottom: 4%;
+}
+
+/*  Tooltip  */
+
+.tooltip {
+    display: inline-block;
+	width: 320px;
+	padding: 5px !important;
+}
+
+/* Tooltip text */
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+	background-color: white !important;
+}
+.tooltip-inner {
+    max-width: 200px;
+    padding: 10px 8px;
+    color: grey;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 3px;
+	-webkit-box-shadow: 3px 5px 20px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 5px 20px 1px rgba(0,0,0,0.75);
+	box-shadow: 3px 5px 20px 1px rgba(0,0,0,0.75);
+}
+.tooltip.right .tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: #fff;
+}
+.tooltip.in {
+    opacity: 1;
 }

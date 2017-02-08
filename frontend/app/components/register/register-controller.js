@@ -26,7 +26,7 @@
 angular.module('App.Controllers')
 
 .controller('registerController',
-	function ($log, RegisterFactory, InitConstants, growl, $state) {
+	function ($log, RegisterFactory, InitConstants, growl, $state,$uibModal) {
 		$log.debug('registerController loading');
 		var self = this;
 		self.page = 'register';
@@ -34,6 +34,7 @@ angular.module('App.Controllers')
 		self.download = false;
 		self.inputType = 'password';
 		self.showEye = false;
+		self.loader=false;
 
 		function activate() {
 			self.downloadUrl = InitConstants.MOBILE_APP_URL;
@@ -57,14 +58,18 @@ angular.module('App.Controllers')
 		}
 
 		self.registerEmail = function (item) {
+			self.loader=true;
 			RegisterFactory.postRegistration(item).then(function (result) {
 				console.log('succes')
 				growl.success("You are registered");
+				self.loader=false;
 				$state.go('login');
 			}, function (error) {
+				self.loader=false;
 				growl.error(error.data);
 				console.log('Error', error);
 				self.download = true;
 			});
 		};
+	
 	});
