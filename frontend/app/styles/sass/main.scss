@@ -9,6 +9,12 @@
 @import "theme";
 //CUSTOM STYLES ADDED IN PARTIAL FILES
 @import "custom-styles/partials";
+
+@font-face {
+    font-family: 'avenir'; /*a name to be used later*/
+    src: url(../fonts/AvenirNextLTPro-Regular.otf); /*URL to font*/
+}
+
 html,
 body {
 	background-image: url(../images/ethereum_background.png);
@@ -16,7 +22,7 @@ body {
 	//background-position:center;
 	background-repeat: no-repeat;
 	background-position: 50% 70%;
-	//font-family: Avenir next;
+	font-family: 'avenir';
 	overflow: hidden;
 }
 
@@ -51,8 +57,8 @@ body {
 
 .navbar .navbar-brand {
 	margin: 0 50px !important;
+	background-size: cover;
 }
-
 
 /*  Main Container   */
 
@@ -293,7 +299,7 @@ input:-webkit-autofill {
 	left: 47%;
 }
 
-.loaderDiv .loaderImage {
+.loaderImage {
     position: absolute;
     top: 34%;
     left: 30%;
@@ -311,6 +317,83 @@ input:-webkit-autofill {
 	}
 }
 
+/*  loader text  */
+
+.loaderText label{
+    color: white;
+    position: absolute;
+   left:0;
+    right:0;
+	top:60%;
+    margin:0px auto;
+    max-width: 700px;
+	font-weight: 100;
+}
+
+.loaderText .loader{
+    color: white;
+    position: absolute;
+   left:0;
+    right:0;
+	top:45%;
+    margin:0px auto;
+    max-width: 700px;
+	font-weight: 100;
+}
+.loaderText .loaderImage{
+    color: white;
+    position: absolute;
+   left:0;
+    right:0;
+	top:46.5%;
+    margin:0px auto;
+    max-width: 700px;
+	font-weight: 100;
+}
+@media (max-height:700px) {
+	.loaderText label{
+		color: white;
+		position: absolute;
+	   left:0;
+		right:0;
+		top:65%;
+		margin:0px auto;
+		max-width: 700px;
+		font-weight: 100;
+	}
+	.loaderText .loaderImage{
+		color: white;
+		position: absolute;
+	   left:0;
+		right:0;
+		top:47.5%;
+		margin:0px auto;
+		max-width: 700px;
+		font-weight: 100;
+	}
+}
+@media (max-height:500px) {
+	.loaderText label{
+		color: white;
+		position: absolute;
+	   left:0;
+		right:0;
+		top:70%;
+		margin:0px auto;
+		max-width: 700px;
+		font-weight: 100;
+	}
+	.loaderText .loaderImage{
+		color: white;
+		position: absolute;
+	   left:0;
+		right:0;
+		top:48.5%;
+		margin:0px auto;
+		max-width: 700px;
+		font-weight: 100;
+	}
+}
 /*  logged  */
 .logged{
 	color: rgb(46, 54, 78);
@@ -327,8 +410,6 @@ input:-webkit-autofill {
 
 /* Tooltip text */
 
-
-/* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
 	background-color: white !important;
