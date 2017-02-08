@@ -30,7 +30,7 @@ angular.module('App.Controllers')
 		$log.debug('loginController loading');
 		var self = this;
 		self.page = 'login';
-		self.loader=true;
+		self.loader=false;
 
 		self.loginUser = function (item) {
 			self.loader=true;

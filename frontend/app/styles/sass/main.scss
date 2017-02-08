@@ -12,7 +12,7 @@
 
 @font-face {
     font-family: 'avenir'; /*a name to be used later*/
-    src: url(../fonts/AvenirNextLTPro-Regular.otf); /*URL to font*/
+    src: url(../../resources/fonts/AvenirNextLTPro-Regular.otf); /*URL to font*/
 }
 
 html,
@@ -58,6 +58,7 @@ body {
 .navbar .navbar-brand {
 	margin: 0 50px !important;
 	background-size: cover;
+	background-image: url(../images/awesome_logo.png);
 }
 
 /*  Main Container   */

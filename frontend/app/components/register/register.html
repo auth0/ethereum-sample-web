@@ -5,12 +5,14 @@
 		<div class="form-box">
 			<form novalidate name="registerForm">
 				<div class="form-group validation">
-				<input ng-model="register.item.email" name="email" type="text" placeholder="Email" ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/" uib-tooltip-html="registerForm.email.$dirty && !registerForm.email.$valid ? 'Please use valid Email' : ''" tooltip-placement="right"  required>
+					<input ng-model="register.item.email" name="email" type="text" placeholder="Email" ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/" uib-tooltip-html="registerForm.email.$dirty && !registerForm.email.$valid ? 'Please use valid Email' : ''"
+					tooltip-placement="right" required>
 					<span ng-show="registerForm.email.$dirty && registerForm.email.$invalid" class="glyphicon glyphicon-remove-sign invalid form-control-feedback icon" aria-hidden="true"></span>
 					<span ng-show="registerForm.email.$valid" class="glyphicon glyphicon-ok-sign valid form-control-feedback icon" aria-hidden="true"></span>
 				</div>
 				<div class="address validation">
-					<input ng-model="register.item.primaryAddress" type="{{register.inputType}}" placeholder="1º Address" ng-keyup="register.checkpass(register.item.address.length)" name="address" ng-pattern="/^0x[a-zA-Z0-9-]{40}$/" uib-tooltip-html="registerForm.address.$dirty && !registerForm.address.$valid ? 'Please use valid Address' : ''" tooltip-placement="right" required>
+					<input ng-model="register.item.primaryAddress" type="{{register.inputType}}" placeholder="1º Address" ng-keyup="register.checkpass(register.item.address.length)" name="address" ng-pattern="/^0x[a-zA-Z0-9-]{40}$/" uib-tooltip-html="registerForm.address.$dirty && !registerForm.address.$valid ? 'Please use valid Address' : ''"
+					tooltip-placement="right" required>
 					<span ng-if="register.showEye" class="glyphicon glyphicon-eye-open eye" ng-mousedown="register.passMouseDown()" ng-mouseup="register.passMouseUp()"></span>
 					<span ng-show="registerForm.address.$dirty && registerForm.address.$invalid" class="glyphicon glyphicon-remove-sign invalid form-control-feedback icon" aria-hidden="true"></span>
 					<span ng-show="registerForm.address.$valid" class="glyphicon glyphicon-ok-sign valid form-control-feedback icon" aria-hidden="true"></span>
@@ -26,10 +28,15 @@
 			<p>Download Mobile App</p>
 		</div>
 	</div>
-	
-	<div class="loaderDiv" ng-if="register.loader">
-		<div class="loaderImage"></div>
-		<div class="loader"></div>
+
+	<div ng-if="register.loader">
+		<div class="loaderText">
+			<div class="loaderImage"></div>
+			<div class="loader"></div>
+		</div>
+		<div class="loaderText text-center">
+			<label>You will recieve a notification to verify your Ethereum account</label>
+		</div>
 	</div>
 
 
