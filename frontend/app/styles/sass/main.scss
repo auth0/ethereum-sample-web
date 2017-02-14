@@ -17,7 +17,7 @@
 
 html,
 body {
-	background-image: url(../images/ethereum_background.png);
+	background-image: url(../../resources/img/ethereum_background.png);
 	//background-size: cover;
 	//background-position:center;
 	background-repeat: no-repeat;
@@ -58,7 +58,7 @@ body {
 .navbar .navbar-brand {
 	margin: 0 50px !important;
 	background-size: cover;
-	background-image: url(../images/awesome_logo.png);
+	background-image: url(../../resources/img/awesome_logo.png);
 }
 
 /*  Main Container   */
@@ -111,7 +111,7 @@ body {
 	height: 90px;
 	margin: 0px auto 40px;
 	background-size: cover;
-	background-image: url(../images/ethereum_logo_blue.png);
+	background-image: url(../../resources/img/ethereum_logo_blue.png);
 	text-align: center;
 }
 
@@ -127,7 +127,7 @@ body {
 	outline: 0;
 }
 
-.form-box input[type="text"] {
+.form-box input[name="email"] {
 	border: none;
 	border-bottom: solid 1px rgb(46, 54, 78);
 	background-color: white;
@@ -304,7 +304,7 @@ input:-webkit-autofill {
     position: absolute;
     top: 34%;
     left: 30%;
-    background-image: url(../images/ethereum_logo.png);
+    background-image: url(../../resources/img/ethereum_logo.png);
     width: 40px;
     height: 65px;
     background-size: cover;

@@ -5,7 +5,7 @@
 		<div class="form-box">
 			<form novalidate name="registerForm">
 				<div class="form-group validation">
-					<input ng-model="register.item.email" name="email" type="text" placeholder="Email" ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/" uib-tooltip-html="registerForm.email.$dirty && !registerForm.email.$valid ? 'Please use valid Email' : ''"
+					<input ng-model="register.item.email" type="text" name="email" placeholder="Email" ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/" uib-tooltip-html="registerForm.email.$dirty && !registerForm.email.$valid ? 'Please use valid Email' : ''"
 					tooltip-placement="right" required>
 					<span ng-show="registerForm.email.$dirty && registerForm.email.$invalid" class="glyphicon glyphicon-remove-sign invalid form-control-feedback icon" aria-hidden="true"></span>
 					<span ng-show="registerForm.email.$valid" class="glyphicon glyphicon-ok-sign valid form-control-feedback icon" aria-hidden="true"></span>
