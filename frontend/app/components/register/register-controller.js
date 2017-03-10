@@ -59,6 +59,7 @@ angular.module('App.Controllers')
 
 		self.registerEmail = function (item) {
 			self.loader=true;
+			item.primaryAddress = angular.lowercase(item.primaryAddress)
 			RegisterFactory.postRegistration(item).then(function (result) {
 				console.log('succes')
 				growl.success("You are registered");

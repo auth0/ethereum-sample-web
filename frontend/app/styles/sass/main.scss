@@ -140,6 +140,12 @@ body {
 	background-color: white;
 	color: rgb(46, 54, 78);
 }
+.form-box input[type="text"] {
+    border: none;
+    border-bottom: solid 1px #2e364e;
+    background-color: white;
+    color: #2e364e;
+}
 
 ::-webkit-input-placeholder {
 	/* WebKit, Blink, Edge */
