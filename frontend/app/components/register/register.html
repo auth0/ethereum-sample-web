@@ -13,7 +13,7 @@
 				<div class="address validation">
 					<input ng-model="register.item.primaryAddress" type="{{register.inputType}}" placeholder="Primary Address: 0x0171A1F853..." ng-keyup="register.checkpass(register.item.address.length)" name="address" ng-pattern="/^0x[a-zA-Z0-9-]{40}$/" uib-tooltip-html="registerForm.address.$dirty && !registerForm.address.$valid ? 'Please use valid Address' : ''"
 					tooltip-placement="right" required>
-					<span ng-if="register.showEye" class="glyphicon glyphicon-eye-open eye" ng-mousedown="register.passMouseDown()" ng-mouseup="register.passMouseUp()"></span>
+					<span ng-if="register.showEye" class="glyphicon glyphicon-eye-open eye" ng-mousedown="register.passMouseDown()" ng-mouseup="register.passMouseUp()" ng-mouseleave="register.passMouseUp()"></span>
 					<span ng-show="registerForm.address.$dirty && registerForm.address.$invalid" class="glyphicon glyphicon-remove-sign invalid form-control-feedback icon" aria-hidden="true"></span>
 					<span ng-show="registerForm.address.$valid" class="glyphicon glyphicon-ok-sign valid form-control-feedback icon" aria-hidden="true"></span>
 				</div>
