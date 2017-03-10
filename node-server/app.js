@@ -57,9 +57,9 @@ app.post('/login', function(req, res) {
     var token = req.body.data;
 	console.log('Received login token:' + token);
 	if(jwtService.isTokenValid(token))
-	    res.status(200);
+	    res.status(200).send(true);
 	else
-	    res.status(403);
+	    res.status(403).send(false);
 });
 
 app.listen(3001, function () {
