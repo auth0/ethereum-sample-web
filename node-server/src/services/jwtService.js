@@ -26,10 +26,41 @@ const jwt = require('jsonwebtoken'),
     request = require('request'),
     configuration = require('./applicationConfigurationService.js');
 
+function convertCertificate (cert) {
+    //Certificate must be in this specific format or else the function won't accept it
+    var beginCert = "-----BEGIN PUBLIC KEY-----";
+    var endCert = "-----END PUBLIC KEY-----";
+
+    while(cert.includes("\\n")){cert = cert.replace("\\n","");} 
+    while(cert.includes("\"")){cert = cert.replace("\"","");} 
+    cert = cert.replace(beginCert, "");
+    cert = cert.replace(endCert, "");
+
+    var result = beginCert;
+    while (cert.length > 0) {
+
+        if (cert.length > 64) {
+            result += "\n" + cert.substring(0, 64);
+            cert = cert.substring(64, cert.length);
+        }
+        else {
+            result += "\n" + cert;
+            cert = "";
+        }
+    }
+
+    if (result[result.length ] != "\n")
+        result += "\n";
+    result += endCert + "\n";
+    return result;
+}
+
+
 var authServerPublicKey;//Gets public key of authentication server
 request(configuration.authServerBaseUrl + 'publickey', function (error, response, body) {
     if (!error && response.statusCode == 200) {
-        authServerPublicKey = body;
+		var newToken = convertCertificate(body)
+		authServerPublicKey = JSON.parse(JSON.stringify(newToken));	
     }
 });
 
