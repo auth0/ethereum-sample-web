@@ -33,7 +33,7 @@ angular.module('App.Controllers')
 		
 	
 		function activate(){
-			self.JWTtoken=JSON.parse(JSON.stringify($cookies.get('JWTtoken')))
+			self.JWTtoken=web3.eth.accounts[0];
 		}
 		activate();
 		
