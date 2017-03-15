@@ -38,7 +38,7 @@ angular.module('App.Controllers')
 				LoginFactory.validateToken(result).then(function (resultValidate) {
 						console.log(resultValidate)
 						console.log('succes')
-						growl.success("Succeful login. Received token:" + JSON.stringify(result));
+						growl.success("Succeful login");
 						
 						var now = new Date();
 						var expiresValue = new Date(now);
