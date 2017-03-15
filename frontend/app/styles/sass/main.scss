@@ -442,10 +442,3 @@ input:-webkit-autofill {
 .tooltip.in {
     opacity: 1;
 }
-
-.modal-backdrop-bg {
-    -webkit-transition: opacity 300ms ease-in-out;
-    transition: opacity 300ms ease-in-out;
-    background-color: #000;
-    opacity: 0.5;
-}
