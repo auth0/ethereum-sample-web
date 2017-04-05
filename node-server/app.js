@@ -26,7 +26,9 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";//added for accepting fake certs
 const express = require('express'),
     path = require('path'),
     app = express(),
-    configuration = require('./src/services/applicationConfigurationService.js'),
+    configuration = require('./src/services/configuration/applicationConfigurationService.js'),
+    authenticationService = require('./src/services/authenticationService.js'),
+    ethereumRegistryServiceWrapper = require('./src/services/wrappers/ethereumRegistryServiceWrapper.js'),
     jwtService = require('./src/services/jwtService.js');
 
 app.use(express.logger());
@@ -61,7 +63,26 @@ app.post('/login', function(req, res) {
 	else
 	    res.status(403).send(false);
 });
+app.post('/login/trustless', function(req, res) {
+    var email = req.body.email;
+	console.log('Received login email:' + email);
 
+    var authData = authenticationService.getAuthData(email);
+    if(ethereumRegistryServiceWrapper.getAuthenticationKey(authData.primaryAddress) == authData.secondaryAddress){
+        if(crypto.validateSignature(authData.challenge, authData.signature, authData.secondaryAddress)){
+            token = jwtService.getSignedTokenPromise(email, authData.primaryAddress);
+            res.status(200).json(token);
+        }
+        else{
+            console.log("Signature is not valid!");
+            res.send(403);
+        }
+    }
+    else{
+        console.log("Primary address [" + authData.primaryAddress + "] is not mapped to a proper secondary address [" + authData.secondaryAddress + "]!");
+        res.send(403);
+    }
+}
 app.listen(3001, function () {
 	console.log('3rd party webapp listening on port 3001');
 });

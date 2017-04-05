@@ -26,6 +26,9 @@
 module.exports = (function() {
 
 	return {
-		authServerBaseUrl : process.argv[2]
+		authServerBaseUrl : process.argv[2],
+		ethereumUrl : process.argv[3],
+		mapperContractAddress : process.argv[4],
+		jwtExpirationTime : process.argv[5]
 	}
 })();

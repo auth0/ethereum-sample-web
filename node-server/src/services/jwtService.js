@@ -24,7 +24,8 @@
 
 const jwt = require('jsonwebtoken'),
     request = require('request'),
-    configuration = require('./applicationConfigurationService.js');
+    Q = require('q'),
+    configuration = require('./configuration/applicationConfigurationService.js');
 
 function convertCertificate (cert) {
     //Certificate must be in this specific format or else the function won't accept it
@@ -59,8 +60,8 @@ function convertCertificate (cert) {
 var authServerPublicKey;//Gets public key of authentication server
 request(configuration.authServerBaseUrl + 'publickey', function (error, response, body) {
     if (!error && response.statusCode == 200) {
-		var newToken = convertCertificate(body)
-		authServerPublicKey = JSON.parse(JSON.stringify(newToken));	
+		var newCert = convertCertificate(body);
+		authServerPublicKey = JSON.parse(JSON.stringify(newCert));
     }
 });
 
@@ -75,6 +76,23 @@ module.exports = (function init(){
                 console.log(err.toString());
                 return false;
             }
+        },
+        getSignedTokenPromise : function getSignedToken(email, primaryAddress){
+        	var deferred = Q.defer();
+        	Q.fcall(function generateRandomBytes() {
+                jwt.sign({email: req.body.email, primaryAddress: req.body.primaryAddress},
+                    authServerPublicKey, {
+                        algorithm: 'RS256',
+                        expiresIn: configuration.jwtExpirationTime
+                    }, function (err, token) {
+                        if (err) {
+                            deferred.reject(err);
+                        } else {
+                            deferred.resolve(token);
+                        }
+                    });
+        	});
+        	return deferred.promise;
         }
     }
 })();

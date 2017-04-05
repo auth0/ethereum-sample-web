@@ -4,9 +4,12 @@
   "version": "0.0.1",
   "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "3.x",
-    "jsonwebtoken": "^7.1.9",
-    "request": "^2.78.0"
+    "body-parser": "1.17.1",
+    "eth-crypto": "file:../../ethereum-crypto",
+    "express": "3.21.2",
+    "jsonwebtoken": "7.3.0",
+    "eth-registration-service": "file:../ethereum-registration-service",
+    "q": "1.5.0",
+    "request": "2.81.0"
   }
 }
