@@ -82,7 +82,7 @@ app.post('/login/trustless', function(req, res) {
         console.log("Primary address [" + authData.primaryAddress + "] is not mapped to a proper secondary address [" + authData.secondaryAddress + "]!");
         res.send(403);
     }
-}
+});
 app.listen(3001, function () {
 	console.log('3rd party webapp listening on port 3001');
 });

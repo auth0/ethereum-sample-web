@@ -25,15 +25,14 @@
 
 const crypto = require('crypto'),
      request = require('request'),
-     applicationConfigurationService = require('./src/services/configuration/applicationConfigurationService.js'),
-     ethereumRegistryServiceWrapper = require('./src/services/wrappers/ethereumRegistryServiceWrapper.js'),
-     randomChallengeService = require('./src/services/randomChallengeService.js');
+     applicationConfigurationService = require('./configuration/applicationConfigurationService.js'),
+     ethereumRegistryServiceWrapper = require('./wrappers/ethereumRegistryServiceWrapper.js'),
+     randomChallengeService = require('./randomChallengeService.js');
 
 const AUTH_SERVER_AUTHENTICATION_PATH = "trustless";
 const RANDOM_CHALLENGE_PREFIX = "AUTH0_CHALLENGE_";
 
 module.exports = (function init() {
-
 	return {
 		getAuthData : function generateChallengeAndGetPrimaryAddressSecondaryAddressAndSignatureFromAuthServer(email){
 		    var challenge = null;
