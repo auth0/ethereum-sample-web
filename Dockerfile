@@ -1,4 +1,7 @@
-FROM node:wheezy
+FROM npm-dependencies:latest
+RUN npm install -g ./ethereum-registration-service
+RUN npm install -g ./ethereum-user-db-service
+RUN npm install -g ./ethereum-crypto
 ADD start.sh start.sh
 RUN tr -d '\r' < start.sh > start2.sh
 RUN rm start.sh
