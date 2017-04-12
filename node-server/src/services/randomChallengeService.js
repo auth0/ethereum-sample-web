@@ -21,43 +21,27 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-'use strict';
+'use strict'
 
-angular.module('App.Controllers')
+const crypto = require('crypto'),
+      Q = require('q'),
+	RANDOM_CHALLENGE_PREFIX = "AUTH0_CHALLENGE_";
 
-.controller('loginController',
-	function ($log, LoginFactory, growl, $state, $cookies) {
-		$log.debug('loginController loading');
-		var self = this;
-		self.page = 'login';
-		self.loader=false;
+module.exports = (function init() {
 
-		self.loginUser = function (item) {
-			self.loader=true;
-			LoginFactory.postAuthentication(item).then(function (result) {
-				LoginFactory.validateToken(result).then(function (resultValidate) {
-						console.log(resultValidate)
-						console.log('succes')
-						growl.success("Succeful login");
-
-						var now = new Date();
-						var expiresValue = new Date(now);
-						expiresValue.setSeconds(now.getSeconds() + 43200);
-						$cookies.put('JWTtoken', result, {
-							'expires': expiresValue
-						});
-						self.loader=false;
-						$state.go('admin');
-					},
-					function (response) { // optional
-						self.loader=false;
-						growl.error(response.data);
-					})
-			}, function (error) {
-				self.loader=false;
-				growl.error(error.data);
-				console.log('Error', error);
-			});
+	return {
+        generateSecureRandomString : function generateSecureRandomString() {
+			var deferred = Q.defer();
+			Q.fcall(function generateRandomBytes() {
+				crypto.randomBytes(48, function (err, buffer) {
+					if (err) {
+						deferred.reject(err);
+					} else {
+						deferred.resolve(RANDOM_CHALLENGE_PREFIX + buffer.toString('hex'));
+					}
+				});
+			})
+			return deferred.promise;
 		}
-
-	});
+	}
+})();
