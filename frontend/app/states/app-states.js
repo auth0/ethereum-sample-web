@@ -66,10 +66,5 @@ angular.module('auth0-login-webApp')
 								}
 							}
 						}
-					})
-					.state('register', {
-						url: '/register',
-						templateUrl: 'components/register/register.html',
-						controller: 'registerController as register'
 					});
             }]);

@@ -85,8 +85,7 @@ body {
 	border-radius: 100px;
 	padding: 6px 50px;
 	border-radius: 20px;
-	margin-top: 7%;
-	margin-bottom: 2%;
+	margin-top: 4%;
 	color: #fff;
 	text-transform: capitalize;
 	font-weight: 300;
@@ -441,4 +440,26 @@ input:-webkit-autofill {
 }
 .tooltip.in {
     opacity: 1;
+}
+
+.checkbox label input[type="checkbox"] {
+    opacity: 1;
+    position: absolute;
+    margin: 0;
+    z-index: -1;
+    width: 18px;
+    height: 23px;
+    overflow: hidden;
+    left: 156px;
+    pointer-events: visible;
+}
+.checkbox {
+    position: relative;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+	-webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }

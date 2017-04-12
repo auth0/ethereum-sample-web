@@ -10,7 +10,7 @@
                            ng-pattern="/^[_a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,})$/"
                            uib-tooltip-html="loginForm.email.$dirty && !loginForm.email.$valid ? 'Please use valid Email' : ''"
                            tooltip-placement="right" required>
-                    <label>Trustless authentication: <input type="checkbox" ng-model="login.item.trustless"/></label>
+					
                     <span ng-show="loginForm.email.$dirty && loginForm.email.$invalid"
                           class="glyphicon glyphicon-remove-sign invalid form-control-feedback icon"
                           aria-hidden="true"></span>
@@ -19,11 +19,12 @@
                           aria-hidden="true"></span>
 
                 </div>
+				<div class="checkbox">
+                    <label><input type="checkbox" ng-model="login.item.trustless"/>Trustless authentication</label>
+							</div>
+		
                 <button class="btn actionButton" ng-click="loginForm.$valid && login.loginUser(login.item)">Login
                 </button>
-                <p>
-                    <label class="labelColor">or create </label> <a class="linkButton" ui-sref="register">a new
-                    account</a></p>
             </form>
         </div>
     </div>
