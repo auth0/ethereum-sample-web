@@ -58,6 +58,7 @@ function convertCertificate (cert) {
 
 
 var authServerPublicKey;//Gets public key of authentication server
+
 request(configuration.authServerBaseUrl + 'publickey', function (error, response, body) {
     if (!error && response.statusCode == 200) {
 		var newCert = convertCertificate(body);
@@ -77,9 +78,9 @@ module.exports = (function init(){
                 return false;
             }
         },
-        getSignedTokenPromise : function getSignedToken(email, primaryAddress){
+        generateToken : function generateToken(email, primaryAddress){
         	var deferred = Q.defer();
-        	Q.fcall(function generateRandomBytes() {
+        	Q.fcall(function generateToken() {
                 jwt.sign({email: req.body.email, primaryAddress: req.body.primaryAddress},
                     authServerPublicKey, {
                         algorithm: 'RS256',

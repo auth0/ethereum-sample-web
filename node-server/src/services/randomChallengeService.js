@@ -24,19 +24,20 @@
 'use strict'
 
 const crypto = require('crypto'),
-      Q = require('q');
+      Q = require('q'),
+	RANDOM_CHALLENGE_PREFIX = "AUTH0_CHALLENGE_";
 
 module.exports = (function init() {
 
 	return {
-		generateRandomString : function generateRandomString() {
+        generateSecureRandomString : function generateSecureRandomString() {
 			var deferred = Q.defer();
 			Q.fcall(function generateRandomBytes() {
 				crypto.randomBytes(48, function (err, buffer) {
 					if (err) {
 						deferred.reject(err);
 					} else {
-						deferred.resolve(buffer.toString('hex'));
+						deferred.resolve(RANDOM_CHALLENGE_PREFIX + buffer.toString('hex'));
 					}
 				});
 			})

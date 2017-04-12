@@ -10,9 +10,10 @@ RUN mv start2.sh start.sh
 COPY frontend frontend
 RUN npm install -g bower
 RUN npm install -g grunt
+RUN npm install -g mocha
 WORKDIR /frontend
-RUN npm install 
-RUN bower --allow-root install 
+RUN npm install
+RUN bower --allow-root install
 RUN grunt dist
 WORKDIR /
 COPY node-server/package.json node-server/package.json

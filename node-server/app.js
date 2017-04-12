@@ -21,21 +21,19 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 * SOFTWARE. 
 */
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";//added for accepting fake certs
+'use strict';
 
 const express = require('express'),
     path = require('path'),
     app = express(),
     configuration = require('./src/services/configuration/applicationConfigurationService.js'),
-    authenticationService = require('./src/services/authenticationService.js'),
+    trustlessAuthenticationService = require('./src/services/trustlessAuthenticationService.js'),
     ethereumRegistryServiceWrapper = require('./src/services/wrappers/ethereumRegistryServiceWrapper.js'),
     jwtService = require('./src/services/jwtService.js');
 
 app.use(express.logger());
-
-app.use(express.json());       
+app.use(express.json());
 app.use(express.urlencoded());
-
 
 app.use("/dist", express.static(__dirname + '/dist'));
 app.use("/styles", express.static(__dirname + '/dist/styles/'));
@@ -45,7 +43,6 @@ app.use("/components/home", express.static(__dirname + '/dist/components/home'))
 app.use("/components/admin", express.static(__dirname + '/dist/components/admin'));
 app.use("/components/login", express.static(__dirname + '/dist/components/login'));
 app.use("/components/register", express.static(__dirname + '/dist/components/register'));
-//app.use("/bower_components",  express.static(__dirname + '/dist/bower_components'));
 
 app.get('/authzero', function (req, res) {
 	res.sendfile(path.join(__dirname + '/dist/index.html'));
@@ -63,26 +60,22 @@ app.post('/login', function(req, res) {
 	else
 	    res.status(403).send(false);
 });
+
 app.post('/login/trustless', function(req, res) {
     var email = req.body.email;
-	console.log('Received login email:' + email);
-
-    var authData = authenticationService.getAuthData(email);
-    if(ethereumRegistryServiceWrapper.getAuthenticationKey(authData.primaryAddress) == authData.secondaryAddress){
-        if(crypto.validateSignature(authData.challenge, authData.signature, authData.secondaryAddress)){
-            token = jwtService.getSignedTokenPromise(email, authData.primaryAddress);
-            res.status(200).json(token);
-        }
-        else{
-            console.log("Signature is not valid!");
-            res.send(403);
-        }
-    }
-    else{
-        console.log("Primary address [" + authData.primaryAddress + "] is not mapped to a proper secondary address [" + authData.secondaryAddress + "]!");
-        res.send(403);
-    }
+    trustlessAuthenticationService.authenticate(email,'/authenticate/trustless')
+    .then(function generateToken(authenticationResult) {
+        return jwtService.generateToken(email,authenticationResult.primaryAddress);
+    })
+    .then(function sendResponse(token) {
+        res.status(200).body(token).send(true);
+    }).fail(function handleError(error) {
+    	console.log("Request failed! " + error);
+	});
 });
+
 app.listen(3001, function () {
 	console.log('3rd party webapp listening on port 3001');
 });
+
+module.exports = app; //for testing
