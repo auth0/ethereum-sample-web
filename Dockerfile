@@ -1,4 +1,7 @@
-FROM node:wheezy
+FROM npm-dependencies:latest
+RUN npm install -g ./ethereum-registration-service
+RUN npm install -g ./ethereum-user-db-service
+RUN npm install -g ./ethereum-crypto
 ADD start.sh start.sh
 RUN tr -d '\r' < start.sh > start2.sh
 RUN rm start.sh
@@ -7,9 +10,10 @@ RUN mv start2.sh start.sh
 COPY frontend frontend
 RUN npm install -g bower
 RUN npm install -g grunt
+RUN npm install -g mocha
 WORKDIR /frontend
-RUN npm install 
-RUN bower --allow-root install 
+RUN npm install
+RUN bower --allow-root install
 RUN grunt dist
 WORKDIR /
 COPY node-server/package.json node-server/package.json

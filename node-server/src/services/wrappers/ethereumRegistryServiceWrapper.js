@@ -23,41 +23,7 @@
 */
 'use strict';
 
-angular.module('App.Controllers')
+const ETHRegistrationService = require('eth-registration-service'),
+      applicationConfiguration = require('../configuration/applicationConfigurationService.js');
 
-.controller('loginController',
-	function ($log, LoginFactory, growl, $state, $cookies) {
-		$log.debug('loginController loading');
-		var self = this;
-		self.page = 'login';
-		self.loader=false;
-
-		self.loginUser = function (item) {
-			self.loader=true;
-			LoginFactory.postAuthentication(item).then(function (result) {
-				LoginFactory.validateToken(result).then(function (resultValidate) {
-						console.log(resultValidate)
-						console.log('succes')
-						growl.success("Succeful login");
-
-						var now = new Date();
-						var expiresValue = new Date(now);
-						expiresValue.setSeconds(now.getSeconds() + 43200);
-						$cookies.put('JWTtoken', result, {
-							'expires': expiresValue
-						});
-						self.loader=false;
-						$state.go('admin');
-					},
-					function (response) { // optional
-						self.loader=false;
-						growl.error(response.data);
-					})
-			}, function (error) {
-				self.loader=false;
-				growl.error(error.data);
-				console.log('Error', error);
-			});
-		}
-
-	});
+module.exports = new ETHRegistrationService(applicationConfiguration.ethereumUrl, applicationConfiguration.mapperContractAddress);
