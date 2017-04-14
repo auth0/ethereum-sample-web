@@ -63,11 +63,8 @@ app.post('/login', function(req, res) {
 app.post('/login/trustless', function(req, res) {
     var email = req.body.email;
     trustlessAuthenticationService.authenticate(email,'/authenticate/trustless')
-    .then(function generateToken(authenticationResult) {
-        return jwtService.generateToken(email,authenticationResult.primaryAddress);
-    })
     .then(function sendResponse(token) {
-        res.status(200).body(token).send(true);
+        res.status(200).send(true);
     }).fail(function handleError(error) {
     	console.log("Request failed! " + error);
 	});
