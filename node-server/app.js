@@ -42,7 +42,6 @@ app.use("/resources", express.static(__dirname + '/dist/resources'));
 app.use("/components/home", express.static(__dirname + '/dist/components/home'));
 app.use("/components/admin", express.static(__dirname + '/dist/components/admin'));
 app.use("/components/login", express.static(__dirname + '/dist/components/login'));
-app.use("/components/register", express.static(__dirname + '/dist/components/register'));
 
 app.get('/authzero', function (req, res) {
 	res.sendfile(path.join(__dirname + '/dist/index.html'));
