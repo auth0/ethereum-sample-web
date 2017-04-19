@@ -35,28 +35,41 @@ angular.module('App.Controllers')
                 self.loader = true;
                 var validationResult;
                 LoginFactory.postAuthentication(item)
-                    .then(function validateToken(result) {
+                    .then(function (result) {
                         if(!item.trustless) {
                             validationResult = result;
-                            return LoginFactory.validateToken(result);
+                            LoginFactory.validateToken(result).then(function(resultValidate){
+                                console.log(JSON.stringify(resultValidate));
+                                console.log(resultValidate);
+                                console.log('success');
+                                growl.success("Successful login");
+
+                                var now = new Date();
+                                var expiresValue = new Date(now);
+                                expiresValue.setSeconds(now.getSeconds() + 43200);
+                                $cookies.put('JWTtoken', validationResult, {
+                                    'expires': expiresValue
+                                });
+                                self.loader = false;
+                                $state.go('admin');
+                            });
                         }
-                        return result;
-                    })
-                    .then(function validateResult(resultValidate) {
-                        console.log(JSON.stringify(resultValidate));
-                        console.log(resultValidate);
-                        console.log('success');
-                        growl.success("Succeful login");
+                        else{
+                            var token = result.data;
+                            console.log(JSON.stringify(token));
+                            console.log(token);
+                            console.log('success');
+                            growl.success("Successful login");
 
-                        var now = new Date();
-                        var expiresValue = new Date(now);
-                        expiresValue.setSeconds(now.getSeconds() + 43200);
-                        $cookies.put('JWTtoken', validationResult, {
-                            'expires': expiresValue
-                        });
-                        self.loader = false;
-                        $state.go('admin');
-
+                            var now = new Date();
+                            var expiresValue = new Date(now);
+                            expiresValue.setSeconds(now.getSeconds() + 43200);
+                            $cookies.put('JWTtoken', token, {
+                                'expires': expiresValue
+                            });
+                            self.loader = false;
+                            $state.go('admin');
+                        }
                     }).catch(function onFailure(error) {
                         self.loader = false;
                         console.log(error);
