@@ -36,9 +36,10 @@
 		}
 
 		factory.postAuthentication = function (item) {
+		    console.log("item:" + JSON.stringify(item));
 			var req = {
 				method: 'POST',
-				url: AuthenticationServerDetailsFactory.getUrl() + item.trustless ? 'login/trustless' : 'login',
+				url:  (item.trustless ? 'login/trustless' : AuthenticationServerDetailsFactory.getUrl() + 'authenticate'),
 				headers: REQUEST_BACKEND_HEADER,
 				data: item
 			};

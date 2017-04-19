@@ -23,7 +23,10 @@
 */
 'use strict';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 const express = require('express'),
+    jwt = require('jsonwebtoken'),
     path = require('path'),
     app = express(),
     configuration = require('./src/services/configuration/applicationConfigurationService.js'),
@@ -62,11 +65,17 @@ app.post('/login', function(req, res) {
 
 app.post('/login/trustless', function(req, res) {
     var email = req.body.email;
-    trustlessAuthenticationService.authenticate(email,'/authenticate/trustless')
-    .then(function sendResponse(token) {
-        res.status(200).send(true);
+    trustlessAuthenticationService.authenticate(email,'authenticate/trustless')
+    .then(function sendResponse() {
+        jwt.sign({email: email},
+            configuration.rsaKeys.privateKey, {
+                algorithm: 'RS256',
+                expiresIn: 60
+            }, function (err, token) {
+                res.status(200).json(token);
+            });
     }).fail(function handleError(error) {
-    	console.log("Request failed! " + error);
+    	console.log("Request failed! " + error.stack);
 	});
 });
 

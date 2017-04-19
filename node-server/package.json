@@ -16,6 +16,7 @@
     "eth-registration-service": "file:../ethereum-registration-service",
     "q": "1.5.0",
     "request": "2.81.0",
-    "proxyquire": "latest"
+    "proxyquire": "latest",
+    "node-rsa": "^0.4.2"
   }
 }

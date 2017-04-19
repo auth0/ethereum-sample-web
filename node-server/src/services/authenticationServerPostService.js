@@ -41,12 +41,14 @@ module.exports = (function init() {
                 body: body
             }, function (error, response, body) {
                 if (error) {
+                    console.log("POST response error " + JSON.stringify(error));
                     deferred.reject(error);
                 } else {
+                    console.log("POST response " + JSON.stringify(response) + " " + JSON.stringify(body));
                     deferred.resolve(body);
                 }
             });
-            return deferred;
+            return deferred.promise;
         }
     };
 })();

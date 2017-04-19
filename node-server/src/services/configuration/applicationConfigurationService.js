@@ -23,12 +23,26 @@
 */
 'use strict';
 
+const fs = require('fs'),
+    NodeRSA = require('node-rsa');
+
+var privateKey = fs.readFileSync(__dirname+'/../../../config/rsa_keys/id_rsa','utf8');
+
 module.exports = (function() {
 
 	return {
 		authServerBaseUrl : process.argv[2],
 		ethereumUrl : process.argv[3],
 		mapperContractAddress : process.argv[4],
-		jwtExpirationTime : process.argv[5]
+		jwtExpirationTime : process.argv[5],
+        httpsOptions: {
+            key: fs.readFileSync(__dirname+'/../../../config/certs/server.key'),
+            cert: fs.readFileSync(__dirname+'/../../../config/certs/server.crt')
+        },
+        rsaKeys : {
+            //publicKey : fs.readFileSync('./config/rsa_keys/id_rsa.pub','utf8'),
+            publicKey : new NodeRSA(privateKey).exportKey('pkcs8-public-pem'),//generates public key from a private one
+            privateKey : privateKey
+        }
 	}
 })();

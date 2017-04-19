@@ -41,17 +41,20 @@ module.exports = (function init() {
                     })
                     .then(function validateEthereumAddresses(response) {
                         var primaryAddress = response.primaryAddress;
+                        console.log("Validating address: " + primaryAddress + " " + authenticationState.secondaryAddress);
                         authenticationState.secondaryAddress = ethereumRegistryServiceWrapper.getAuthenticationKey(primaryAddress);
-                        if(authenticationState.secondaryAddress == '0x') {
-                            throw new Error("The primary address is not mapped in the Mapper smart contract!")
+                        if(authenticationState.secondaryAddress === '0x') {
+                            throw new Error("The primary address is not mapped in the Mapper smart contract!");
                         }
                         authenticationState.signature = response.signature;
                         return response.signature;
                     })
                     .then(function validateSignature(signature) {
+                        console.log("Validating signature: "+ signature);
                         return ethCrypto.validateSignature(authenticationState.challenge, signature, authenticationState.secondaryAddress);
                     })
                     .then(function checkResult(result) {
+                        console.log("Validation result: "+ result);
                         if(!result) {
                             throw new Error("Signature is invalid!");
                         }
