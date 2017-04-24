@@ -43,6 +43,9 @@ module.exports = (function init() {
                 if (error) {
                     console.log("POST response error " + JSON.stringify(error));
                     deferred.reject(error);
+                } else if(response.statusCode != 200) {
+                    console.log("POST response failed, response body: " + JSON.stringify(body));
+                    deferred.reject(new Error(JSON.stringify(body)));
                 } else {
                     console.log("POST response " + JSON.stringify(response) + " " + JSON.stringify(body));
                     deferred.resolve(body);
@@ -52,3 +55,4 @@ module.exports = (function init() {
         }
     };
 })();
+

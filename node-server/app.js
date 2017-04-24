@@ -75,7 +75,8 @@ app.post('/login/trustless', function(req, res) {
                 res.status(200).json(token);
             });
     }).fail(function handleError(error) {
-    	console.log("Request failed! " + error.stack);
+    	console.log("Request failed! " + JSON.stringify(JSON.parse(error.message).error) + " stack:" + JSON.stringify(error.stack));
+        res.status(403).json(JSON.parse(error.message)).send(false);
 	});
 });
 

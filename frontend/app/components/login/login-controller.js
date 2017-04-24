@@ -73,8 +73,9 @@ angular.module('App.Controllers')
                     }).catch(function onFailure(error) {
                         self.loader = false;
                         console.log(error);
-                        growl.error(error.data);
+                        growl.error(error.data.error);
                         console.log('Error', error);
                     });
             };
         });
+

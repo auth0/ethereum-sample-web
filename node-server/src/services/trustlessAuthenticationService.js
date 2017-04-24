@@ -41,8 +41,8 @@ module.exports = (function init() {
                     })
                     .then(function validateEthereumAddresses(response) {
                         var primaryAddress = response.primaryAddress;
-                        console.log("Validating address: " + primaryAddress + " " + authenticationState.secondaryAddress);
                         authenticationState.secondaryAddress = ethereumRegistryServiceWrapper.getAuthenticationKey(primaryAddress);
+                        console.log("Validating address: " + primaryAddress + " " + authenticationState.secondaryAddress);
                         if(authenticationState.secondaryAddress === '0x') {
                             throw new Error("The primary address is not mapped in the Mapper smart contract!");
                         }
@@ -63,3 +63,4 @@ module.exports = (function init() {
             }
         }
     })();
+
