@@ -28,6 +28,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const express = require('express'),
     jwt = require('jsonwebtoken'),
     path = require('path'),
+    https = require('https'),
     app = express(),
     configuration = require('./src/services/configuration/applicationConfigurationService.js'),
     trustlessAuthenticationService = require('./src/services/trustlessAuthenticationService.js'),
@@ -80,8 +81,10 @@ app.post('/login/trustless', function(req, res) {
 	});
 });
 
-app.listen(3001, function () {
-	console.log('3rd party webapp listening on port 3001');
+
+https.createServer(configuration.httpsOptions, app).listen(3001, function () {
+    console.log('[HTTPS] 3rd party webapp listening on port 3001...');
 });
+
 
 module.exports = app; //for testing
