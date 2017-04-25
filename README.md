@@ -26,6 +26,13 @@ npm install -g grunt
 npm install
 bower install
 ```
+
+* put your certificates and rsa keys in the config directory
+  * config/certs should contain the following files:
+    * server.crt
+	* server.csr
+	* server.key
+
 * run project
 
 Run the application. 

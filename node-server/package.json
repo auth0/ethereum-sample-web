@@ -10,13 +10,13 @@
     "body-parser": "1.17.1",
     "eth-crypto": "file:../../ethereum-crypto",
     "express": "3.21.2",
-    "chai": "latest",
-    "chai-http": "latest",
+    "chai": "3.5.0",
+    "chai-http": "3.0.0",
     "jsonwebtoken": "7.3.0",
-    "eth-registration-service": "file:../ethereum-registration-service",
+    "eth-registration-service": "file:../../ethereum-registration-service",
     "q": "1.5.0",
     "request": "2.81.0",
-    "proxyquire": "latest",
+    "proxyquire": "1.7.11",
     "node-rsa": "^0.4.2"
   }
 }
