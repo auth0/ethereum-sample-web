@@ -66,7 +66,7 @@ app.post('/login', function(req, res) {
 
 app.post('/login/trustless', function(req, res) {
     var email = req.body.email;
-    trustlessAuthenticationService.authenticate(email,'/authenticate/trustless')
+    trustlessAuthenticationService.authenticate(email,'authenticate/trustless')
     .then(function sendResponse() {
         jwt.sign({email: email},
             configuration.rsaKeys.privateKey, {
