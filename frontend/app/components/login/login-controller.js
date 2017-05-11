@@ -47,7 +47,7 @@ angular.module('App.Controllers')
                                 var now = new Date();
                                 var expiresValue = new Date(now);
                                 expiresValue.setSeconds(now.getSeconds() + 43200);
-                                $cookies.put('JWTtoken', validationResult, {
+                                $cookies.put('JWTtoken', validationResult.data, {
                                     'expires': expiresValue
                                 });
                                 self.loader = false;
