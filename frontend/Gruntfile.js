@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     var options = {
         appName: require('./package.json').name,
@@ -33,7 +34,18 @@ module.exports = function (grunt) {
         ],
         css: [
             'styles/**/*.css'
-        ]
+        ],
+        copy: {
+            dev: {
+                files: [{
+                    cwd: 'app/components',
+                    src: '**/*.js',
+                    dest: '../node-server/dist/components/',
+                    expand: true,
+                    filter: 'isFile',
+                }]
+            }
+        }
     };
 
     // Load grunt configurations automatically at config folder

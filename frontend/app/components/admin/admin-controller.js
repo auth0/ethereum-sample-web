@@ -30,12 +30,4 @@ angular.module('App.Controllers')
 		$log.debug('adminController loading');
 		var self = this;
 		self.page = 'admin';
-
-
-		function activate(){
-			self.JWTtoken = web3.eth.accounts[0];
-		}
-
-		activate();
-
 	});
