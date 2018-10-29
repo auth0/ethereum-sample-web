@@ -18,7 +18,7 @@ npm install -g bower
 npm install -g grunt
 ```
 
-## Running Ethereum fronted
+## Running Ethereum frontend
 
 * configure project:
 
@@ -48,7 +48,7 @@ Run Dist
 `grunt dist` 
 
 
-## Running Ethereum fronted server
+## Running Ethereum frontend server
 
 configure project:
 * folder:

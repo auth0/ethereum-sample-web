@@ -1,6 +1,6 @@
 {
-  "name": "Auth0-fronted-server",
-  "description": "Auth0-fronted-server",
+  "name": "Auth0-frontend-server",
+  "description": "Auth0-frontend-server",
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
